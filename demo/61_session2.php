@@ -1,13 +1,9 @@
 <?php session_start();
-
+//display stored session
 echo $_SESSION['greeting'];
 
 
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

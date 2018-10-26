@@ -41,9 +41,22 @@ function deleteRows($id)
 
 }
 
+function getHash($pWord) {
+    $hashFormat = "$2y$10$";
+    $salt = "lazydogjumpoverthegreenfense";
+    $hashSalt = $hashFormat . $salt;
+
+    $pWord = crypt($pWord, $hashSalt);
+
+    return $pWord;
+}
+
 function createUser($uName, $pWord)
 {
     global $con;
+
+$pWord = getHash($pWord);
+
 
     if ($uName && $pWord) {
         echo "<br>Username: " . $uName . " & password " . $pWord . "<br>";
@@ -62,6 +75,8 @@ function createUser($uName, $pWord)
 
 function updateData($uName, $pWord, $id)
 {
+    $pWord = getHash($pWord);
+
     echo "user: " . $uName . "<br>";
     echo "password: " . $pWord . "<br>";
     echo "id: " . $id . "<br>";
