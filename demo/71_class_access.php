@@ -1,42 +1,36 @@
-<?php 
+<?php
 
-class Car {
-    
-    public $wheels = 4; // Can be used anywhere
-    protected $hood = 1;// only available inside        class or sub-classes or methods
-    private $engine = 1; // Only available inside the class
-    
-    var $doors = 4;
-    
-     function showProperty(){
-    
-        echo $this->wheels . " Public Wheels Inside Car Class <br> ";
-        echo $this->hood . " Protected Hood Inside Car Class<br>";
-         echo $this->engine . " Private Engine Inside Car Class<br>";
-    
-    } 
-  
-   
+class Car
+{
+  public $wheels = 4;
+  protected $hood = 1; //only can use inside class , can use use on extends class inside as well
+  private $engine = 46; // private can only use inside function
+  var $doors = 49;
 
-}
+  function showProperty()
+  {
+    echo $this->hood;
+  }
 
-$bmw = new Car();
-$semi = new Semi();
+  function privateProperty() {
+      echo $this->engine;
+  }
 
-class Semi extends Car {
-    
-       function showProperty(){
-    
-      echo $this->wheels . " Public Wheels inside the Semi Class<br>"; 
-      echo $this->hood . " Protected Hood inside the Semi Class <br>";
-           
-//    echo $this->engine;
-        
-    
-    } 
 
 }
-echo $bmw->showProperty();
-echo $semi->showProperty();
-echo $bmw->wheels . " Public Wheels Outside all the classes" ;
+
+class semi extends Car {
+     function showProperty()
+  {
+    echo $this->hood;
+  }
+}
+
+$bmw = new Car();   // object of a car
+// echo $bmw->wheels;
+// echo $bmw->showProperty();  // only can use hood inside class
+// $semi = new semi();
+// echo $semi->showProperty();
+echo $bmw->privateProperty();
+
 ?>

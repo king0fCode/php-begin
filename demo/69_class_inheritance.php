@@ -1,49 +1,44 @@
-<?php 
+<?php
 
-class Car {
-    
-    var $wheels = 4;
-    var $hood = 1;
-    var $engine = 1;
-    var $doors = 4;
-    
-  
-    function MoveWheels(){
-    
-      $this->wheels = 10;
-        
-    
-    } 
-    
-    
-    function CreateDoors(){
-    
-      $this->doors = 6;
-        
-    
-    } 
+class Car
+{
+  var $wheels = 4;
+  var $hood = 1;
+  var $engine = 1;
+  var $doors = 4;
 
+  function NoOfWheels()
+  {
+    $this->wheels = 10;
+  }
+
+  function Createdoors()
+  {
+    $this->doors = 6;
+  }
 }
 
-$bmw = new Car();
-
+// class plane have all the properties of car
 class Plane extends Car {
-
-    var $wheels = 20;
-    
-    
-    
+  // overise parent class whels value
+var $wheels = 20;
 }
+
+
+// check weather class exist or not
+if(class_exists('Plane')) {
+  echo 'class exist';
+
+} else {
+  echo 'class not exist';
+}
+
+
+$bmw = new Car();   // object of a car
 
 $jet = new Plane();
-//$jet->MoveWheels();
+$jet->NoOfWheels();
 echo $jet->wheels;
-
-//if(class_exists("Plane")) {
-//
-//    echo "it does";
-//
-//}
 
 
 
