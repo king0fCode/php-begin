@@ -22,3 +22,6 @@ $db = Database::getConnection();
     }
 
 }?>
+
+
+<?php $result = GetData($db);?>
